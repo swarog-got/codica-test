@@ -42,7 +42,7 @@ class AppointmentsController < ApplicationController
   private
 
   def limit_appointment_with_open_status
-    Appointment.where(status: Appointment.status.open).size <= 10
+    Appointment.where(status: Appointment.status.open).size < 10
   end
 
   def scope_user
