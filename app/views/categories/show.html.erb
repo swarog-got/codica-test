@@ -1,0 +1,9 @@
+<%= turbo_frame_tag :show_category do %>
+   <div class="pt-3">
+    <h3>Список врачей категории <%= @category.name %></h3>
+  </div>
+  <hr/>
+  <div id="doctors" class="doctors-cards-block">
+    <%= render "categories/doctors" %>
+  </div>
+<% end %>

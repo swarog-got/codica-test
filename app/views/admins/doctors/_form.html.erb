@@ -1,0 +1,95 @@
+<div class="ms-5 mx-5">
+  <div class="field row mb-4">
+    <%= f.label "Выберите Категорию", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.select :category_id,
+          Category.all.collect {|category| [ category.name, category.id ] }, 
+          { include_blank: true }, class: "form-control form-select" %>
+    </div>
+  </div>
+  <div class="field row mb-4">
+    <%= f.label "Email", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.email_field :email, 
+          autofocus: true,
+          autocomplete: "email",
+          class: "form-control",
+          placeholder: t("devise.form.placeholders.email") %>
+    </div>
+  </div>
+  <div class="field row mb-4">
+    <%= f.label "Имя", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :first_name, 
+          autofocus: true,
+          autocomplete: "first_name",
+          class: "form-control",
+          placeholder: t("devise.form.placeholders.first_name") %>
+    </div>
+  </div>
+  <div class="field row mb-4">
+    <%= f.label "Фамилия", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :last_name, 
+          autofocus: true,
+          autocomplete: "last_name",
+          class: "form-control",
+          placeholder: t("devise.form.placeholders.last_name") %>
+    </div>
+  </div>
+  <div class="field row mb-4">
+    <%= f.label "Телефон", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.phone_field :phone, 
+          autofocus: true,
+          autocomplete: "phone",
+          class: "form-control",
+          placeholder: t("devise.form.placeholders.phone") %>
+    </div>
+  </div>
+  <div class="field row mb-4">
+    <%= f.label "Пароль", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.password_field :password, 
+          autofocus: true,
+          autocomplete: "password",
+          class: "form-control",
+          placeholder: t("devise.form.placeholders.password") %>
+    </div>
+  </div>
+  <div class="field row mb-4">
+    <%= f.label "Проверка пароля", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.password_field :password_confirmation, 
+          autofocus: true,
+          autocomplete: "password_confirmation",
+          class: "form-control",
+          placeholder: t("devise.form.placeholders.password_confirmation") %>
+    </div>
+  </div>
+  <div class="field row mb-4">
+    <%= f.label "Выберите Пол", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.collection_radio_buttons :gender, User::GENDER.map {|k,v| [k,k]}, :first, :last, class: 'col-sm-10' do |button| %>
+        <span class="mx-2">
+          <%= button.radio_button %>
+          <%= button.label %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+  <div class="field row mb-4">
+    <%= f.label "Год рождения", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.date_field :born_date, 
+          autofocus: true,
+          autocomplete: "born_date",
+          class: "form-control",
+          placeholder: t("devise.form.placeholders.born_date") %>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="d-flex justify-content-end">
+  <%= f.submit "Отправить", class: "btn text-white", style: "background: #1ec8c8;" %>
+</div>

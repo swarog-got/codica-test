@@ -1,0 +1,23 @@
+<%= turbo_frame_tag :modal do %>
+  <div class="modal fade" data-controller="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= form_with model: @recommendation, url: recommendations_path(appointment_id: params[:appointment_id]), data: { turbo: false }, method: :post do |form| %>
+            <div class="mb-3">
+              <%= form.text_area :answer, class: "form-control", placeholder: "Рекомендация", rows: 10 %>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-end">
+              <%= form.submit "Отправить рекомендацию", class: "btn text-white", style: "background: #1ec8c8;" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

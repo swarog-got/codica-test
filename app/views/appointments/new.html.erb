@@ -1,0 +1,28 @@
+<%= turbo_frame_tag :modal do %>
+  <div class="modal fade" data-controller="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= form_with model: @appointment, url: appointments_path, data: { turbo: false }, method: :post do |form| %>
+            <%= form.hidden_field :doctor_id, value: params[:doctor_id] %>
+            <%= form.hidden_field :patient_id, value: current_user.id %>
+            <div class="mb-3">
+              <%= form.text_field :title, class: "form-control", placeholder: "Заголовок" %>
+            </div>
+            <div class="mb-3">
+              <%= form.text_area :question, class: "form-control", placeholder: "Опишите ваше состояние", rows: 10 %>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-end">
+              <%= form.submit "Отправить запись", class: "btn text-white", style: "background: #1ec8c8;" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,118 @@
+ru:
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M:%S"
+  app_title: "Онлайн поликлиника"
+  table:
+    actions: "Действия"
+  buttons:
+    filter: "Фильтр"
+    search: "Поиск"
+  user:
+    edit:
+      flash:
+        success: "Пользователь успешно изменён"
+        alert: "Пользователь не был изменён"
+  patients:
+    destroy:
+      flash:
+        success: "Пациент успешно удален"
+  recommendation:
+    create:
+      flash:
+        success: "Рекомендация успешно отправлена"
+        alert: "Рекомендация не была отправлена"
+  doctors:
+    create:
+      flash:
+        success: "Врач успешно создан"
+        alert: "Врач не был создан"
+    edit:
+      flash:
+        success: "Врач успешно изменён"
+        alert: "Врач не был изменён"
+    destroy:
+      flash:
+        success: "Врач успешно удален"
+  appointment:
+    create:
+      flash:
+        success: "Запись к врачу успешно создана"
+        alert: "Запись к врачу не был создана"
+    update:
+      flash:
+        success: "Запись успешно обновленна"
+        alert: "У вас может быть всего 10 открытых записей"
+  categories:
+    create:
+      flash:
+        success: "Категория успешно создана"
+        alert: "Категория с таким названием уже существует"
+    edit:
+      flash:
+        success: "Категория успешно изменена"
+        alert: "Категория с таким названием уже существует"
+    destroy:
+      flash:
+        success: "Категория успешно удалена"
+  activerecord:
+    attributes:
+      appointment:
+        id: "ID"
+        title: "Заголовок"
+        answer: "Ответ"
+        question: "Вопрос"
+        created_at: "Дата создания"
+        updated_at: "Дата обновления"
+        status: "Статус"
+      user:
+        id: "ID"
+        email: "Почта"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        phone: "Телефон"
+        password: "Пароль"
+        password_confirmation: "Проверка пароля"
+        created_at: "Дата создания"
+        updated_at: "Дата обновления"
+      category:
+        id: "ID"
+        name: "Название категории"
+        created_at: "Дата создания"
+        updated_at: "Дата обновления"
+    errors:
+      models:
+        doctor:
+          attributes:
+            email:
+              blank: "не заполнена"
+              taken: "уже существует"
+            first_name:
+              blank: "не заполнено"
+            last_name:
+              blank: "не заполнена"
+            phone:
+              blank: "не заполнен"
+              taken: "уже существует"
+            password:
+              blank: "не заполнен"
+              too_short: "слишком короткий"
+            password_confirmation:
+              confirmation: "не совпадает с паролем"
+        user:
+          attributes:
+            email:
+              blank: "не заполнена"
+              taken: "уже существует"
+            first_name:
+              blank: "не заполнено"
+            last_name:
+              blank: "не заполнена"
+            phone:
+              blank: "не заполнен"
+              taken: "уже существует"
+            password:
+              blank: "не заполнен"
+              too_short: "слишком короткий"
+            password_confirmation:
+              confirmation: "не совпадает с паролем"

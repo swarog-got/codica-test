@@ -1,0 +1,39 @@
+ru:
+  devise:
+    links:
+      sign_in: "Авторизоваться"
+      sign_out: "Выход"
+      sign_up: "Зарегистрироваться"
+    form:
+      placeholders:
+        email: "Почта"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password: "Пароль"
+        password_confirmation: "Проверка пароля"
+        phone: "Телефон"
+      buttons:
+        sign_up: "Зарегистрироваться"
+        sign_in: "Авторизоваться"
+    registrations:
+      title: "Регистрация"
+      signed_up: "Регистрация успешно завершена"
+    sessions:
+      title: "Авторизация"
+      signed_in: "Выполнен вход."
+      signed_out: "Выполнен выход."
+      already_signed_out: "Выполнен выход."
+    failure:
+      invalid: "%{authentication_keys} или пароль введен неверно."
+      unauthenticated: "Прежде чем продолжить, вам необходимо войти или зарегистрироваться."
+      not_found_in_database: "%{authentication_keys} или пароль введен неверно."
+  errors:
+    messages:
+      already_confirmed: "был уже подтвержден, попробуйте войти"
+      confirmation_period_expired: "необходимо подтвердить в течение %{period}. Пожалуйста, запросите новый"
+      expired: "истек, запросите новый"
+      not_found: "не найден"
+      not_locked: "не был заблокирован"
+      not_saved:
+        one: "1 ошибка не позволили завершить регистрацию:"
+        other: "%{count} ошибок не позволили завершить регистрацию:"

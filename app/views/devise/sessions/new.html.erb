@@ -1,0 +1,43 @@
+<div class="container-fluid h-100" style="background: #1ec8c8;">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-sm-3">
+      <div class="card text-center border-0">
+        <div class="card-header">
+          <h2><%= t("devise.sessions.title") %></h2>
+        </div>
+        <div class="card-body">
+          <%= form_for resource, as: resource_name, url: session_path(resource_name), data: { turbo: false } do |f| %>
+            <% if flash[:alert].present? %>
+              <div class="alert alert-danger"><%= flash[:alert] %></div>
+            <% end %>
+
+            <div class="field mb-4">
+              <%= f.phone_field :phone,
+                  autofocus: true,
+                  autocomplete: "phone",
+                  class: "form-control",
+                  placeholder: t("devise.form.placeholders.phone") %>
+            </div>
+
+            <div class="field mb-4">
+              <%= f.password_field :password,
+                  autocomplete: "current-passwordd",
+                  class: "form-control",
+                  placeholder: t("devise.form.placeholders.password") %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit t("devise.form.buttons.sign_in"),
+                  class: "btn text-white form-control",
+                  style: "background: #1ec8c8;" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="card-footer">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

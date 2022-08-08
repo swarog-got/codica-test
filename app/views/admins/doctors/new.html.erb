@@ -1,0 +1,9 @@
+<div>  
+  <h5 class="mt-3">Создать врача</h5>
+</div>
+<hr>
+<div>
+  <%= form_with model: @doctor, url: admins_doctors_path, method: :post do |f| %>
+    <%= render "admins/doctors/form", f: f %>
+  <% end %>
+</div>

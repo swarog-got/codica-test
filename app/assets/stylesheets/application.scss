@@ -1,0 +1,24 @@
+@import "bootstrap";
+
+body {
+  height: 100vh;
+  max-height: 100vh;
+  max-width: 100%;
+}
+
+.category-list {
+  max-height: 83vh;
+  overflow-x: auto;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #ddd;
+}
+
+textarea {
+	resize: none;
+}

@@ -1,0 +1,35 @@
+<div class="col-1 col-md-1 col-xl-1 px-sm-1 px-0" style="background: #1ec8c8;">
+  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 sticky-top">
+    <ul class="nav nav-pills flex-column mb-sm-auto mt-5 w-100 align-items-center align-items-sm-start" id="menu">
+      <li class="nav-item p-2 rounded mb-2 w-100" style="background: #2d8791;">
+        <%= link_to user_path(current_user), class: "nav-link align-middle px-0 text-white text-center" do %>
+          <span>Профиль</span>
+        <% end %>
+      </li>
+      <% if current_user.has_role?(:admin) %>
+        <li class="nav-item p-2 rounded mb-2 w-100" style="background: #2d8791;">
+          <%= link_to admins_patients_path, class: "nav-link align-middle px-0 text-white text-center" do %>
+            <span>Пациенты</span>
+          <% end %>
+        </li>
+        <li class="nav-item p-2 rounded  mb-2 w-100" style="background: #2d8791;">
+          <%= link_to admins_doctors_path, class: "nav-link align-middle px-0 text-white text-center" do %>
+            <span>Доктора</span>
+          <% end %>
+        </li>
+        <li class="nav-item p-2 rounded mb-2 w-100" style="background: #2d8791;">
+          <%= link_to admins_categories_path, class: "nav-link align-middle px-0 text-white text-center" do %>
+            <span>Категории</span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <hr>
+    <div class="pb-4">
+      <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" do %>
+        <%= bootstrap_icon "box-arrow-left", width: "20px", height: "20px" %>
+        <span>Выйти</span>
+      <% end %>
+    </div>
+  </div>
+</div>

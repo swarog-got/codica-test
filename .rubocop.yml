@@ -1,0 +1,84 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 3.1.2
+  NewCops: disable
+  Exclude:
+    - db/schema.rb
+    - db/seeds.rb
+    - db/migrate/*.rb
+    - lib//*
+    - tmp//*
+    - vendor//*
+    - scripts/*
+    - config/*
+    - bin/*
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: error
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Layout/LineLength:
+  Exclude:
+    - config/initializers/devise.rb
+    - config//*.rb
+  Max: 120
+
+Rails:
+  Enabled: true
+
+Rails/InverseOf:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 50
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/EmptyFile:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+RSpec/ImplicitSubject:
+  Enabled: false
+
+Naming/VariableNumber:
+  CheckMethodNames: false
+  CheckSymbols: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/RedundantBegin:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 15
+
+RSpec/MultipleExpectations:
+  Max: 15

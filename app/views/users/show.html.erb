@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-between align-items-center">
+  <% if current_user.has_role? :doctor %>
+    <h3 class="mt-3">Карточка врача</h3>
+  <% else %>
+    <h3 class="mt-3">Амбулаторная карточка пациента</h3>
+  <% end %>
+  <%= link_to edit_user_path(current_user), class: "btn mt-3 text-white", style: "background: #1ec8c8;" do %>
+    <%= bootstrap_icon "pencil", width: 25, height: 25 %>
+  <% end %>
+</div>
+<hr>
+<div>
+  <h2 class="mb-4"><%= current_user.first_name %> <%= current_user.last_name %></h2>
+  <ul class="list-group list-group-flush">
+    <% if current_user.has_role? :doctor %>
+      <li class="list-group-item d-flex align-items-center border-0">
+        <%= bootstrap_icon "clipboard2-pulse-fill", width: 25, height: 25 %>
+        <div class="ms-3">
+          <small>Категория</small>
+          <p><%= current_user.category.present? ? current_user.category.name : "-" %></p>
+        </div>
+      </li>
+    <% end %>
+    <li class="list-group-item d-flex align-items-center border-0">
+      <%= bootstrap_icon "person", width: 25, height: 25 %>
+      <div class="ms-3">
+        <small>Пол</small>
+        <p><%= current_user.gender %></p>
+      </div>
+    </li>
+    <li class="list-group-item d-flex align-items-center border-0">
+      <%= bootstrap_icon "calendar", width: 25, height: 25 %>
+      <div class="ms-3">
+        <small>Дата рождения</small>
+        <p><%= current_user.born_date.present? ? current_user.born_date.strftime("%F") : "" %></p>
+      </div>
+    </li>
+    <li class="list-group-item d-flex align-items-center border-0">
+      <%= bootstrap_icon "phone", width: 25, height: 25 %>
+      <div class="ms-3">
+        <small>Телефон</small>
+        <p><%= current_user.phone %></p>
+      </div>
+    </li>
+    <li class="list-group-item d-flex align-items-center border-0">
+      <%= bootstrap_icon "envelope", width: 25, height: 25 %>
+      <div class="ms-3">
+        <small>Почта</small>
+        <p><%= current_user.email %></p>
+      </div>
+    </li>
+  </ul>
+</div>
+<hr>
+<div>
+  <% if can? :read, Category %>
+    <%= link_to "Записаться к врачу", categories_path, class: "btn text-white", style: "background: #1ec8c8;" %>
+  <% end %>
+  <% if current_user.has_role? :doctor %>
+    <%= link_to "Мои записи #{current_user.patient_appointments.count}", appointments_path, class: "btn text-white mx-3", style: "background: #1ec8c8;" %>
+  <% else %>
+    <%= link_to "Мои записи #{current_user.doctor_appointments.count}", appointments_path, class: "btn text-white mx-3", style: "background: #1ec8c8;" %>
+  <% end %>
+</div>

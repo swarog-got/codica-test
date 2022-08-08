@@ -1,0 +1,9 @@
+<div>
+  <h3 class="mt-3">Изменить категорию</h3>
+</div>
+<hr>
+<div>
+  <%= form_with model: @category, url: admins_category_path, method: :put do |form| %>
+    <%= render "admins/categories/form", form: form %>
+  <% end %>
+</div>

@@ -1,0 +1,81 @@
+<div class="container-fluid h-100" style="background: #1ec8c8;">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-sm-3">
+      <div class="card text-center border-0">
+        <div class="card-header">
+          <h2><%= t("devise.registrations.title") %></h2>
+        </div>
+        <div class="card-body">
+          <%= form_for resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }, class: "form" do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="field mb-4">
+              <%= f.email_field :email, 
+                  autofocus: true,
+                  autocomplete: "email",
+                  class: "form-control",
+                  placeholder: t("devise.form.placeholders.email") %>
+            </div>
+            <div class="field mb-4">
+              <%= f.phone_field :phone,
+                  autofocus: true,
+                  autocomplete: "phone",
+                  class: "form-control",
+                  placeholder: t("devise.form.placeholders.phone") %>
+            </div>
+            <div class="field mb-4">
+              <%= f.text_field :first_name,
+                  autofocus: true,
+                  autocomplete: "first_name",
+                  class: "form-control",
+                  placeholder: t("devise.form.placeholders.first_name") %>
+            </div>
+            <div class="field mb-4">
+              <%= f.text_field :last_name,
+                  autofocus: true,
+                  autocomplete: "last_name",
+                  class: "form-control",
+                  placeholder: t("devise.form.placeholders.last_name") %>
+            </div>
+            <div class="field mb-4">
+              <%= f.label "Выберите Пол:" %>
+              <%= f.collection_radio_buttons :gender, User::GENDER.map {|k,v| [k,k]}, :first, :last, class: 'col-sm-10' do |button| %>
+                <span class="mx-2">
+                  <%= button.radio_button %>
+                  <%= button.label %>
+                </span>
+              <% end %>
+            </div>
+            <div class="field mb-4">
+              <%= f.label "Дата рождения", class: "mb-2" %>
+              <%= f.date_field :born_date, 
+                  autofocus: true,
+                  autocomplete: "born_date",
+                  class: "form-control",
+                  placeholder: t("devise.form.placeholders.born_date") %>
+            </div>
+            <div class="field mb-4">
+              <%= f.password_field :password,
+                  autocomplete: "new-password",
+                  class: "form-control",
+                  placeholder: "#{t("devise.form.placeholders.password")} #{@minimum_password_length.to_s + ' символов минимум' if @minimum_password_length}" %>
+            </div>
+            <div class="field mb-4">
+              <%= f.password_field :password_confirmation,
+                  autocomplete: "new-password",
+                  class: "form-control",
+                  placeholder: t("devise.form.placeholders.password_confirmation") %>
+            </div>
+            <div class="actions">
+              <%= f.submit t("devise.form.buttons.sign_up"),
+                  class: "btn text-white form-control",
+                  style: "background: #1ec8c8;" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="card-footer">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

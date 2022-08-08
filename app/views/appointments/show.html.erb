@@ -1,0 +1,56 @@
+<div>
+  <h3 class="mt-3">Запись <%= @appointment.id %></h3>
+</div>
+<hr>
+<div>
+  <h2><%= @appointment.title %></h2>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item d-flex align-items-center border-0">
+      <%= bootstrap_icon "person", width: 25, height: 25 %>
+      <div class="ms-3">
+        <small>Пациент</small>
+        <p><%= @appointment.patient.first_name %> <%= @appointment.patient.last_name %></p>
+      </div>
+    </li>
+    <li class="list-group-item d-flex align-items-center border-0">
+      <%= bootstrap_icon "clipboard2-pulse-fill", width: 25, height: 25 %>
+      <div class="ms-3">
+        <small>Врач</small>
+        <p><%= @appointment.doctor.first_name %> <%= @appointment.doctor.last_name %></p>
+      </div>
+    </li>
+    <li class="list-group-item d-flex align-items-center border-0">
+      <%= bootstrap_icon "calendar", width: 25, height: 25 %>
+      <div class="ms-3">
+        <small>Дата создания записи</small>
+        <p><%= @appointment.created_at.strftime("%FT%T") %></p>
+      </div>
+    </li>
+  </ul>
+  <hr>
+  <div>
+    <h4>Описание симптомов</h4>
+    <div class="card">
+      <div class="card-body">
+        <p><%= @appointment.question %></p>
+      </div>
+    </div>
+  <div>
+  <hr>
+  <div>
+    <h4>Рекомендация врача</h4>
+    <div class="card">
+      <div class="card-body">
+        <p><%= @appointment.recommendation.present? ? @appointment.recommendation.answer : "" %></p>
+      </div>
+    </div>
+    <hr>
+    <% if can?(:new, Recommendation) && @appointment.status == Appointment.status.open %>
+      <%= link_to "Написать рекомендацию",
+          new_recommendation_path(appointment_id: @appointment),
+          data: { turbo_frame: :modal },
+          class: "btn text-white", style: "background: #1ec8c8;" %>
+      <%= turbo_frame_tag :modal %>
+    <% end %>
+  <div>
+</div>
