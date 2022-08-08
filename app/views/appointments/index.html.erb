@@ -6,7 +6,7 @@
   <table class="table table-bordered text-center">
     <thead>
       <tr>
-        <th scope="col"><%= sort_link(@q, :id) %></th>
+        <th scope="col"><%= sort_link(@q, :title) %></th>
         <% if current_user.has_role?(:doctor) %>
           <th scope="col"><%= sort_link(@q, "Пациент", :patient_first_name) %></th>
         <% else %>
